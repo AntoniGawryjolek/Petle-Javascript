@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pętle JS - zadania</title>
 
+<style>
+body {
+    background: #1e1b2e;
+    color: #eee;
+    font-family: Arial;
+    padding: 20px;
+}
+h1 {
+    color: #c084fc;
+}
+.box {
+    background: #2a2540;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+button {
+    background: #a855f7;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Zadania - Pętle</h1>
+
+<div class="box" id="wynik"></div>
+
+<button onclick="run()">Uruchom wszystko</button>
+
+<script>
+function run(){
+let out = "";
+
+// 1
+out += "1: ";
+for(let i=1;i<=10;i++) out += i+" ";
+out += "<br>";
+
+// 2
+out += "2: ";
+for(let i=10;i>=1;i--) out += i+" ";
+out += "<br>";
+
+// 3
+let suma=0;
+for(let i=1;i<=10;i++) suma+=i;
+out += "3: suma = "+suma+"<br>";
+
+// 4
+out += "4: ";
+for(let i=2;i<=20;i+=2) out += i+" ";
+out += "<br>";
+
+// 5
+let X=12, Y=100, kasa=0;
+for(let i=0;i<X;i++){
+    kasa+=Y;
+    kasa*=1.08;
+}
+out += "5: "+kasa.toFixed(2)+" zł<br>";
+
+// 6
+let a=5, s=0;
+for(let i=0;i<100;i++){
+    s+=a;
+    a+=10;
+}
+out += "6: "+s+"<br>";
+
+// 7
+let cegly=0;
+for(let i=1;i<=10;i++) cegly+=i*i;
+out += "7: "+cegly+"<br>";
+
+// 8
+let base=10, h=5, z=1, sumaC=0;
+for(let i=0;i<h;i++){
+    sumaC += base - i*z;
+}
+out += "8: "+sumaC+"<br>";
+
+// 9
+let K=2;
+out += "9: "+(sumaC*K)+" kg<br>";
+
+// 10 kalkulator
+let a1=5, b1=3, op="+";
+let wynik;
+if(op=="+") wynik=a1+b1;
+if(op=="-") wynik=a1-b1;
+if(op=="*") wynik=a1*b1;
+if(op=="/") wynik=a1/b1;
+out += "10: "+wynik+"<br>";
+
+// 11
+let N=5, X1=2, Y1=3;
+out += "11: ";
+for(let i=0;i<N;i++){
+    out += (X1+i*Y1)+" ";
+}
+out += "<br>";
+
+// 12
+let sum=1;
+let a2=2, b2=-2;
+sum=a2+b2;
+out += "12: suma = "+sum+"<br>";
+
+// 13
+let n=5, silnia=1;
+for(let i=1;i<=n;i++) silnia*=i;
+out += "13: "+silnia+"<br>";
+
+// 14
+let start=2;
+out += "14: ";
+for(let i=0;i<5;i++){
+    out += start+" ";
+    start*=start;
+}
+out += "<br>";
+
+// 15
+let sum2=0;
+out += "15: ";
+for(let i=0;i<10;i++){
+    let los = Math.floor(Math.random()*51)+50;
+    out += los+" ";
+    sum2+=los;
+}
+out += "<br>suma="+sum2+" srednia="+(sum2/10);
+
+document.getElementById("wynik").innerHTML = out;
+}
+</script>
+
+</body>
+</html>
