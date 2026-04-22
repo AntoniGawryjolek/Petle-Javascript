@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pętle JavaScript</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#120f1f;
+    color:#eee;
+}
+
+header{
+    text-align:center;
+    padding:20px;
+    color:#c084fc;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:15px;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#221c36;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(168,85,247,0.15);
+}
+
+.card h3{
+    margin-top:0;
+    color:#a855f7;
+    font-size:16px;
+}
+
+button{
+    background:#a855f7;
+    border:none;
+    padding:6px 10px;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+input{
+    padding:5px;
+    margin:3px;
+    border-radius:5px;
+    border:none;
+    width:90%;
+}
+
+.result{
+    margin-top:10px;
+    font-size:14px;
+    color:#ddd;
+    min-height:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>PĘTLE JAVASCRIPT</header>
+
+<div class="grid">
+
+<div class="card">
+<h3>1. Liczby 1–10</h3>
+<button onclick="task1()">Start</button>
+<div id="t1" class="result"></div>
+</div>
+
+<div class="card">
+<h3>2. 10 → 1</h3>
+<button onclick="task2()">Start</button>
+<div id="t2" class="result"></div>
+</div>
+
+<div class="card">
+<h3>3. Suma 1–10</h3>
+<button onclick="task3()">Start</button>
+<div id="t3" class="result"></div>
+</div>
+
+<div class="card">
+<h3>4. Parzyste</h3>
+<button onclick="task4()">Start</button>
+<div id="t4" class="result"></div>
+</div>
+
+<div class="card">
+<h3>5. Oszczędności + 8%</h3>
+<input id="m" placeholder="miesiące">
+<input id="y" placeholder="wpłata">
+<button onclick="task5()">Oblicz</button>
+<div id="t5" class="result"></div>
+</div>
+
+<div class="card">
+<h3>6. Ciąg +10 (100 elementów)</h3>
+<button onclick="task6()">Start</button>
+<div id="t6" class="result"></div>
+</div>
+
+<div class="card">
+<h3>7. Piramida 10x10</h3>
+<button onclick="task7()">Start</button>
+<div id="t7" class="result"></div>
+</div>
+
+<div class="card">
+<h3>8. Ściana (X, Y, Z)</h3>
+<input id="x" placeholder="X">
+<input id="y" placeholder="Y">
+<input id="z" placeholder="Z">
+<button onclick="task8()">Oblicz</button>
+<div id="t8" class="result"></div>
+</div>
+
+<div class="card">
+<h3>9. Waga ściany</h3>
+<input id="k" placeholder="waga cegły">
+<button onclick="task9()">Oblicz</button>
+<div id="t9" class="result"></div>
+</div>
+
+<div class="card">
+<h3>10. Kalkulator</h3>
+<input id="a" placeholder="A">
+<input id="b" placeholder="B">
+<input id="op" placeholder="+ - * /">
+<button onclick="task10()">=</button>
+<div id="t10" class="result"></div>
+</div>
+
+<div class="card">
+<h3>11. Ciąg arytmetyczny</h3>
+<button onclick="task11()">Start</button>
+<div id="t11" class="result"></div>
+</div>
+
+<div class="card">
+<h3>12. Suma do 0 (prompt)</h3>
+<button onclick="task12()">Start</button>
+<div id="t12" class="result"></div>
+</div>
+
+<div class="card">
+<h3>13. Silnia</h3>
+<input id="n" placeholder="n">
+<button onclick="task13()">Oblicz</button>
+<div id="t13" class="result"></div>
+</div>
+
+<div class="card">
+<h3>14. Kwadraty</h3>
+<button onclick="task14()">Start</button>
+<div id="t14" class="result"></div>
+</div>
+
+<div class="card">
+<h3>15. Losowe 50–100</h3>
+<button onclick="task15()">Generuj</button>
+<div id="t15" class="result"></div>
+</div>
+
+</div>
+
+<script>
+
+function out(id,val){
+document.getElementById(id).innerHTML=val;
+}
+
+/* ===== 1 ===== */
+function task1(){
+let t="";
+for(let i=1;i<=10;i++) t+=i+" ";
+out("t1",t);
+}
+
+/* ===== 2 ===== */
+function task2(){
+let t="";
+for(let i=10;i>=1;i--) t+=i+" ";
+out("t2",t);
+}
+
+/* ===== 3 ===== */
+function task3(){
+let s=0;
+for(let i=1;i<=10;i++) s+=i;
+out("t3",s);
+}
+
+/* ===== 4 ===== */
+function task4(){
+let t="";
+for(let i=2;i<=20;i+=2) t+=i+" ";
+out("t4",t);
+}
+
+/* ===== 5 ===== */
+function task5(){
+let m=+m.value, y=+y.value, k=0;
+for(let i=0;i<m;i++){
+k+=y;
+k*=1.08;
+}
+out("t5",k.toFixed(2));
+}
+
+/* ===== 6 ===== */
+function task6(){
+let a=5,s=0;
+for(let i=0;i<100;i++){
+s+=a;
+a+=10;
+}
+out("t6",s);
+}
+
+/* ===== 7 ===== */
+function task7(){
+let s=0;
+for(let i=1;i<=10;i++) s+=i*i;
+out("t7",s);
+}
+
+/* ===== 8 ===== */
+function task8(){
+let x=+x.value,y=+y.value,z=+z.value,s=0;
+for(let i=0;i<y;i++) s+=x-i*z;
+out("t8",s);
+}
+
+/* ===== 9 ===== */
+function task9(){
+let k=+k.value,s=0;
+for(let i=1;i<=10;i++) s+=i*i;
+out("t9",s*k);
+}
+
+/* ===== 10 ===== */
+function task10(){
+let a=+a.value,b=+b.value,op=op.value,w=0;
+if(op=="+")w=a+b;
+if(op=="-")w=a-b;
+if(op=="*")w=a*b;
+if(op=="/")w=a/b;
+out("t10",w);
+}
+
+/* ===== 11 ===== */
+function task11(){
+let N=10,X=2,Y=3,t="";
+for(let i=0;i<N;i++) t+=(X+i*Y)+" ";
+out("t11",t);
+}
+
+/* ===== 12 ===== */
+function task12(){
+let s;
+do{
+let a=+prompt("a"),b=+prompt("b");
+s=a+b;
+alert(s);
+}while(s!=0);
+out("t12","koniec");
+}
+
+/* ===== 13 ===== */
+function task13(){
+let n=+n.value,w=1;
+for(let i=1;i<=n;i++) w*=i;
+out("t13",w);
+}
+
+/* ===== 14 ===== */
+function task14(){
+let a=2,t="";
+for(let i=0;i<5;i++){
+t+=a+" ";
+a*=a;
+}
+out("t14",t);
+}
+
+/* ===== 15 ===== */
+function task15(){
+let s=0,t="";
+for(let i=0;i<10;i++){
+let l=Math.floor(Math.random()*51)+50;
+t+=l+" ";
+s+=l;
+}
+out("t15",t+"<br>Suma: "+s+" Śr: "+s/10);
+}
+
+</script>
+
+</body>
+</html>
